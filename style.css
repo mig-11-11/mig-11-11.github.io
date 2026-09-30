@@ -1,0 +1,1150 @@
+/* ==================== RESET ==================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+h4 {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+}
+
+code,
+.project-number,
+.eyebrow {
+    font-family: "JetBrains Mono", monospace;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* ==================== VARIABLES ==================== */
+
+:root {
+    --background: #f0e6eb;
+    --surface: #ffffff;
+    --text: #231f2d;
+    --muted: #6b6375;
+    --border: #d3c4cb;
+    --accent: #2457ff;
+    --dark: #181528;
+
+    --max-width: 1100px;
+}
+
+
+/* ==================== GLOBAL ==================== */
+
+.container {
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+}
+
+.section {
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+    padding: 120px 0;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+}
+
+
+/* ==================== NAVIGATION ==================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    /* Full-width bar across the viewport */
+    width: 100%;
+    height: 72px;
+
+    background: rgba(240, 226, 232, 0.88);
+    backdrop-filter: blur(12px);
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.logo:hover {
+    color: var(--dark);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text);
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ==================== HERO ==================== */
+
+.hero {
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    min-height: 700px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    margin-bottom: 25px;
+}
+
+.hero h2 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.hero p:not(.eyebrow) {
+    max-width: 650px;
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+/* Primary "View Projects" Button: Deep plum -> Vibrant rose pink */
+.button.primary {
+    background: var(--dark); /* #181528 */
+    color: #ffffff;
+    border: 1.5px solid var(--dark);
+}
+
+.button.primary:hover {
+    background: #e59bb0; /* Warm rose tone pulled directly from your project gradient */
+    border-color: #e59bb0;
+    color: #181528;      /* Deep plum text for high contrast against light rose */
+    transform: translateY(-2px);
+}
+
+/* Secondary "Contact" Button: Glassy blush -> Light plum fill */
+.button.secondary {
+    background: rgba(255, 255, 255, 0.4);
+    border: 1.5px solid var(--dark);
+    color: var(--dark);
+}
+
+.button.secondary:hover {
+    background: #362e4f; /* Lighter plum tone (softened from #181528) */
+    border-color: #362e4f;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ==================== ABOUT ==================== */
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-content p {
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-placeholder {
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e5e5e2;
+    color: var(--muted);
+}
+
+
+/* ==================== PROJECTS ==================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    padding: 35px;
+
+    background: #fcf1f3;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(10, 1, 79, 0.10);
+    background: #fae8eb;
+    border-color: #cd9fcc;
+}
+
+.project-number {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.project-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 25px;
+}
+
+.tags span {
+    padding: 5px 10px;
+
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    color: var(--text);
+    font-size: 0.7rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.tags span:hover {
+    background: #f6caca;
+    border-color: #cd9fcc;
+    color: #0a014f;
+}
+
+.project-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+
+/* ==================== EXPERIENCE ==================== */
+
+.experience-list {
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+    padding: 35px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Muted lavender-slate for metadata */
+.experience-date {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--muted); 
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding-top: 4px;
+}
+
+/* Primary deep slate-plum for job titles */
+.experience-content h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text); 
+    margin-bottom: 4px;
+}
+
+/* Secondary muted tone for organization names */
+.experience-content h4 {
+    color: var(--muted); 
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+/* Bullet list container */
+.experience-details {
+    margin: 0;
+    padding-left: 20px;
+    list-style-type: disc !important;
+    max-width: 750px;
+}
+
+/* Bullet item text in primary body color */
+.experience-details li {
+    display: list-item !important;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text); 
+}
+
+/* Bullet dots styled in soft muted lavender */
+.experience-details li::marker {
+    color: var(--muted);
+    font-size: 0.9em;
+}
+
+.experience-details li:last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile responsive layout */
+@media (max-width: 768px) {
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 25px 0;
+    }
+    
+    .experience-date {
+        padding-top: 0;
+    }
+}
+
+
+/* ==================== SKILLS ==================== */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills span {
+    padding: 10px 16px;
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    background: #fcf1f3;
+    font-size: 0.85rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.skills span:hover {
+    background: #f6caca;
+    border-color: #cd9fcc;
+    color: #0a014f;
+    transform: translateY(-2px);
+}
+
+
+/* ==================== CONTACT ==================== */
+
+.contact-section {
+    padding: 120px 20px;
+
+    background: var(--dark);
+    color: #ffffff;
+
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-section .eyebrow {
+    color: #a4b7ff; /* Softened accent blue for contrast against dark background */
+}
+
+.contact-section p:not(.eyebrow) {
+    color: #b8b3c3; /* Warmer muted gray-lavender for subtitle text */
+}
+
+.contact-section h2 {
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    margin-bottom: 25px;
+}
+
+.contact-section p:not(.eyebrow) {
+    color: #aaaaaa;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.contact-links a {
+    font-weight: 600;
+    border-bottom: 1px solid #3c3550; /* Matching muted border line */
+    padding-bottom: 3px;
+}
+
+
+/* ==================== FOOTER ==================== */
+
+footer {
+    padding: 25px;
+
+    background: var(--dark);
+    color: #8c8599;
+
+    border-top: 1px solid #28233d; /* Smooth separator between dark sections */
+
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+
+/* ==========================================================
+   PROJECT PAGES
+   ========================================================== */
+
+
+/* ==================== PROJECT HERO ==================== */
+
+.project-hero {
+    width: 100%;
+    margin: 0;
+    padding: 140px 0 100px;
+
+    border-top: 1px solid var(--border);
+
+    background: linear-gradient(
+        90deg,
+        #fae8eb 0%,
+        #f6caca 30%,
+        #cd9fcc 65%,
+        #0a014f 100%
+    );
+}
+
+.project-hero-content {
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.project-hero h1 {
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    margin-bottom: 30px;
+}
+
+.project-intro {
+    max-width: 700px;
+    color: var(--muted);
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+
+    color: var(--muted);
+    font-size: 0.85rem;
+
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--text);
+}
+
+
+/* ==================== PROJECT SECTIONS ==================== */
+
+.project-section {
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+    padding: 100px 0;
+
+    border-top: 1px solid var(--border);
+
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 80px;
+}
+
+.project-section-header h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+}
+
+.project-section-content {
+    max-width: 750px;
+}
+
+.project-section-content p {
+    color: var(--muted);
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+}
+
+.project-section-content h3 {
+    font-size: 1.4rem;
+    margin: 35px 0 10px;
+}
+
+
+/* ==================== PROJECT HIGHLIGHT ==================== */
+
+.highlight-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+
+    border: 1px solid #cd9fcc;
+    border-left: 3px solid #0a014f;
+    background: #fcf1f3;
+
+    border-radius: 10px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.highlight-box:hover {
+    background: #f6caca;
+    border-color: #0a014f;
+    box-shadow: 0 8px 22px rgba(10, 1, 79, 0.08);
+}
+
+.highlight-box h3 {
+    margin-bottom: 0.75rem;
+}
+
+.highlight-box ul {
+    list-style-type: disc !important; /* Force standard bullet dots */
+    padding-left: 1.5rem !important;  /* Add left padding so the dots aren't cut off */
+    margin-top: 0.5rem;
+}
+
+.highlight-box li {
+    display: list-item !important;    /* Ensure elements behave like standard list items */
+    margin-bottom: 0.5rem;
+}
+
+
+/* ==================== METHODOLOGY ==================== */
+
+.method-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.method-card {
+    padding: 1.5rem;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: #fcf1f3;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.method-card:hover {
+    background: #f6caca;
+    border-color: #cd9fcc;
+    box-shadow: 0 8px 22px rgba(10, 1, 79, 0.08);
+    transform: translateY(-2px);
+}
+
+.method-card h3 {
+    margin-bottom: 0.75rem;
+}
+
+
+/* ==================== RESULTS ==================== */
+
+.results-grid {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px; /* Adds space between each box */
+
+    background: transparent; /* Removes background line fill */
+
+    margin-bottom: 40px;
+}
+
+.result {
+    padding: 30px;
+
+    background: #fcf1f3;
+    border: 1px solid var(--border); /* Adds an explicit border around each box */
+    border-radius: 12px;
+
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.result:hover {
+    background: #f6caca;
+    border-color: #cd9fcc;
+    transform: translateY(-2px);
+}
+
+.result strong {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.result span {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+
+/* ==================== VISUALIZATIONS ==================== */
+
+.visualization-grid {
+    grid-column: 1 / -1; /* Spans across both the header and content columns */
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.visualization {
+    background: #fcf1f3;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.visualization:hover {
+    background: #f6caca;
+    border-color: #cd9fcc;
+    box-shadow: 0 8px 22px rgba(10, 1, 79, 0.08);
+    transform: translateY(-2px);
+}
+
+.visualization img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.figure-caption {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .visualization-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== CONTRIBUTIONS ==================== */
+
+.contribution-list {
+    margin-top: 1.5rem;
+    padding-left: 1.5rem;
+
+    list-style: disc;
+}
+
+.contribution-list li {
+    margin-bottom: 1rem;
+}
+
+
+/* ==================== PROJECT LINKS ==================== */
+
+.project-links {
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin: 0 auto;
+
+    padding: 80px 0 120px;
+
+    display: flex;
+    gap: 15px;
+}
+
+
+/* ==========================================================
+   RESPONSIVE DESIGN
+   ========================================================== */
+
+
+/* ==================== TABLET ==================== */
+
+@media (max-width: 800px) {
+
+    /* Navigation */
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 72px;
+        left: 0;
+        right: 0;
+
+        flex-direction: column;
+        gap: 20px;
+
+        padding: 25px 20px;
+
+        background: var(--background);
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    /* Homepage */
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+
+    /* Project Pages */
+
+    .project-section {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 70px 0;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+/* ==================== MOBILE ==================== */
+
+@media (max-width: 700px) {
+
+    .method-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ==================== SMALL MOBILE ==================== */
+
+@media (max-width: 500px) {
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .project-card {
+        padding: 25px;
+    }
+
+    .project-hero {
+        padding: 100px 0 70px;
+    }
+
+    .project-hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .project-links {
+        padding-bottom: 80px;
+    }
+}
+
+/* ==================== DATA & PREPARATION GRID & BOXES ==================== */
+
+/* Container grid for data/prep cards */
+.data-prep-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Individual card styling */
+.data-prep-box {
+    padding: 30px;
+    background: #fcf1f3;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.data-prep-box:hover {
+    background: #fae8eb;
+    border-color: #cd9fcc;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(10, 1, 79, 0.08);
+}
+
+.data-prep-box h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.data-prep-box p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive collapse for small screens */
+@media (max-width: 700px) {
+    .data-prep-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ==================== SECTION 2 FULL-WIDTH BREAKOUT ==================== */
+
+/* 1. Force the section grid to collapse to 1 full-width column */
+.project-section.full-width-section {
+    display: block !important;
+    width: min(calc(100% - 40px), var(--max-width)) !important;
+    margin: 0 auto !important;
+}
+
+/* 2. Make the inner container span the exact 100% width of the divider line */
+.section-inner-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 3. Allow headers, paragraphs, and content blocks to stretch edge-to-edge */
+.section-inner-container .project-section-header,
+.section-inner-container .project-section-content,
+.section-inner-container .content-block,
+.section-inner-container p,
+.section-inner-container h2,
+.section-inner-container h3,
+.section-inner-container ul {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: left;
+}
+
+/* 4. Center grids and boxes across the full 1100px width */
+.section-inner-container .full-width-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+    width: 100% !important;
+    margin: 30px 0 !important;
+}
+
+/* Enforce 2 equal boxes per row for the method grid across the full section width */
+.section-inner-container .wide-method-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    margin: 30px 0 !important;
+}
+
+/* Ensure method cards allow child text and formulas to flow naturally */
+.section-inner-container .method-card {
+    width: 100% !important;
+    min-width: 0 !important; /* Unlocks grid column scaling */
+    padding: 1.5rem !important;
+    box-sizing: border-box !important;
+    overflow: visible !important; /* Ensures text and KaTeX math aren't clipped */
+}
+
+/* Fix KaTeX display rendering inside method cards */
+.section-inner-container .method-card .katex-display {
+    display: block !important;
+    width: 100% !important;
+    margin: 1rem 0 !important;
+    font-size: 0.95em !important;
+    overflow-x: auto !important; /* Handles narrow viewports smoothly */
+    overflow-y: hidden !important;
+    text-align: center !important;
+}
+
+/* 5. Center figures and graphics along the page axis (scaled to 80%) */
+.section-inner-container .visualization,
+.section-inner-container .wide-visualization {
+    width: 80% !important;
+    max-width: 80% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 30px auto !important; /* Auto margins center the 80% box */
+}
+
+.section-inner-container .visualization img,
+.section-inner-container .wide-visualization img {
+    width: 80% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+.section-inner-container .figure-caption {
+    text-align: center !important;
+    margin-top: 12px !important;
+}
+
+.visualization-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.visualization-grid .visualization {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.visualization-grid .visualization img {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+    object-fit: contain;
+    /* Forces the image element itself to stretch across the card width */
+    max-width: none !important; 
+}
+
+/* OVERRIDE: Prevent Rule 5 from double-shrinking visualizations inside a grid */
+.section-inner-container .visualization-grid .visualization {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+.section-inner-container .visualization-grid .visualization img {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Stack vertically on mobile screens */
+@media (max-width: 768px) {
+    .visualization-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+    .section-inner-container .full-width-grid,
+    .section-inner-container .wide-method-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .section-inner-container .visualization,
+    .section-inner-container .wide-visualization {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
