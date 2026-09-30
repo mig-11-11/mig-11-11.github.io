@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NFL Performance Modeling & Analytics | Matteo Gomez</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- KaTeX CSS & Auto-render extension -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ]
+            });">
+    </script>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================== NAVIGATION ==================== -->
+
+    <header>
+        <nav class="navbar">
+            <div class="container navbar-container">
+                <a href="../index.html" class="logo">Matteo Gomez</a>
+    
+                <button class="menu-toggle" id="menu-toggle">
+                    ☰
+                </button>
+    
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <main>
+
+
+        <!-- ==================== PROJECT HERO ==================== -->
+
+        <header class="project-hero">
+
+            <div class="project-hero-content">
+
+                <a href="../index.html#projects"
+                   class="back-link">
+                    ← Back to Projects
+                </a>
+
+                <p class="eyebrow">
+                    PROJECT / INDEPENDENT
+                </p>
+
+                <h1>
+                    NFL Performance Modeling & Analytics
+                </h1>
+
+                <p class="project-intro">
+                    A statistical analysis of NFL team and player performance using play-by-play data from the 2020–2025 regular seasons. The project examines which NFL statistics are associated with team success.
+                </p>
+
+                <div class="tags">
+                    <span>R Programming</span>
+                    <span>Data Engineering & ETL</span>
+                    <span>Statistical Modeling</span>
+                    <span>Data Visualization</span>
+                    <span>Quantitative Analysis</span>
+                    <span>Database Architecture</span>
+                    <span>Automated Reporting</span>
+                    <span>Sports Analytics</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ==================== OVERVIEW ==================== -->
+
+        <section class="project-section">
+
+            <div class="project-section-header">
+
+                <p class="eyebrow">
+                    01 / OVERVIEW
+                </p>
+
+                <h2>
+                    Connecting performance to winning
+                </h2>
+
+            </div>
+
+
+            <div class="project-section-content">
+
+                <p>
+                    NFL teams generate hundreds of measurable
+                    performance statistics throughout a season,
+                    but not all statistics capture the same
+                    information about team success. This project
+                    investigates which offensive, defensive,
+                    player-level, and situational statistics are
+                    most strongly associated with winning.
+                </p>
+
+                <p>
+                    The analysis focuses on whether efficiency-based
+                    measures such as Expected Points Added ($\text{EPA}$) provide additional
+                    information beyond traditional statistics, while
+                    also examining red-zone performance, explosive
+                    plays, quarterback efficiency, third-down
+                    conversion, and early-game performance.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== DATA ==================== -->
+
+        <section class="project-section">
+        
+            <div class="project-section-header">
+                <p class="eyebrow">02 / DATA</p>
+                <h2>Data & Preparation</h2>
+            </div>
+        
+            <div class="project-section-content">
+        
+                <div class="data-prep-grid">
+        
+                    <div class="data-prep-box">
+                        <h3>Primary Dataset</h3>
+                        <p>
+                            The primary dataset consists of NFL play-by-play
+                            observations from the 2020–2025 regular seasons ($N = 3{,}230$ team-games across $n = 192$ team-seasons).
+                            Each observation contains information about game state,
+                            teams, play type, yardage, expected points added ($\text{EPA}$), success,
+                            turnovers, and situational variables.
+                        </p>
+                    </div>
+        
+                    <div class="data-prep-box">
+                        <h3>Pipeline & Tooling</h3>
+                        <p>
+                            The raw play-level data was collected using the
+                            <strong>nflreadr</strong> and <strong>tidyverse</strong>
+                            packages in R and transformed into analysis-ready datasets
+                            using SQL. Statistical analysis was performed in Python using
+                            NumPy, Pandas, Matplotlib, SciPy, and Statsmodels.
+                        </p>
+                    </div>
+        
+                </div>
+        
+                <div class="results-grid" style="margin-top: 30px;">
+                    <div class="result">
+                        <strong>192</strong>
+                        <span>Team-season observations</span>
+                    </div>
+                    <div class="result">
+                        <strong>3,230</strong>
+                        <span>Team-game observations</span>
+                    </div>
+                    <div class="result">
+                        <strong>2020–2025</strong>
+                        <span>Regular-season data</span>
+                    </div>
+                </div>
+        
+            </div>
+        
+        </section>
+
+
+
+        <!-- ==================== METHODOLOGY ==================== -->
+
+        <section class="project-section full-width-section">
+            <div class="section-inner-container">
+                <div class="project-section-header">
+
+                    <p class="eyebrow">
+                        03 / METHODOLOGY
+                    </p>
+
+                    <h2>
+                        Statistical Modeling Pipeline
+                    </h2>
+
+                </div>
+
+
+                <div class="project-section-content">
+
+                    <div class="wide-method-grid">
+
+                        <div class="method-card">
+
+                            <h3>
+                                01 — Data Processing
+                            </h3>
+
+                            <p>
+                                Raw play-by-play observations were
+                                aggregated with SQL into game-level
+                                and team-season datasets containing
+                                wins, win percentage ($\text{Win}\%$), efficiency
+                                measures, and situational statistics.
+                            </p>
+
+                        </div>
+
+
+                        <div class="method-card">
+
+                            <h3>
+                                02 — Feature Engineering
+                            </h3>
+
+                            <p>
+                                Play-level data was transformed into
+                                metrics including $\text{EPA}/\text{play}$, success
+                                rate, turnover rate, red-zone efficiency,
+                                explosive-play rate, quarterback
+                                efficiency, and third-down performance.
+                            </p>
+
+                        </div>
+
+
+                        <div class="method-card">
+
+                            <h3>
+                                03 — Statistical Analysis
+                            </h3>
+
+                            <p>
+                                Pearson ($r$) and Spearman ($\rho$) correlations were
+                                used to measure associations, while
+                                ordinary least squares (OLS) regression modeled
+                                team win percentage and logistic regression
+                                modeled individual game outcomes:
+                                $$\text{logit}(P(Y=1)) = \beta_0 + \sum_{i=1}^{k} \beta_i X_i$$
+                            </p>
+
+                        </div>
+
+
+                        <div class="method-card">
+
+                            <h3>
+                                04 — Model Evaluation
+                            </h3>
+
+                            <p>
+                                Models were evaluated using coefficient of determination ($R^2$), adjusted
+                                $R^2_{\text{adj}}$, coefficient significance ($p < 0.05$), confidence
+                                intervals, $F$-tests, likelihood-ratio tests,
+                                and comparisons between alternative
+                                statistical specifications.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== RESULTS ==================== -->
+
+        <section class="project-section">
+
+            <div class="project-section-header">
+
+                <p class="eyebrow">
+                    04 / RESULTS
+                </p>
+
+                <h2>
+                    What did the models show?
+                </h2>
+
+            </div>
+
+
+            <div class="project-section-content">
+
+                <div class="results-grid">
+
+                    <div class="result">
+
+                        <strong>
+                            0.778
+                        </strong>
+
+                        <span>
+                            Final model $R^2$
+                        </span>
+
+                    </div>
+
+
+                    <div class="result">
+
+                        <strong>
+                            0.734
+                        </strong>
+
+                        <span>
+                            $\text{EPA}/\text{play}$ correlation ($r$)
+                        </span>
+
+                    </div>
+
+
+                    <div class="result">
+
+                        <strong>
+                            24.1% → 74.3%
+                        </strong>
+
+                        <span>
+                            First-half $\text{EPA}$ quartile win rate
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="highlight-box">
+
+                    <h3 style="margin-top: 0;">
+                        $\text{EPA}$ consistently captured information
+                        about team success
+                    </h3>
+
+                    <p>
+                        $\text{EPA}/\text{play}$ showed a strong association
+                        with team win percentage across multiple
+                        analyses. The $\text{EPA}$-based offensive model
+                        explained $54.3\%$ of observed variation in
+                        win percentage ($R^2 = 0.543$), compared with $R^2 = 0.516$ for the
+                        traditional-statistics model.
+                    </p>
+
+                </div>
+
+
+                <p>
+                    <br>
+                    The final efficiency model incorporated
+                    offensive $\text{EPA}/\text{play}$, offensive success rate,
+                    offensive turnover rate, defensive $\text{EPA}/\text{play}$,
+                    and defensive success rate. Together, these
+                    variables explained $77.8\%$ of the observed
+                    variation ($R^2 = 0.778$) in team win percentage within the
+                    analyzed sample.
+                </p>
+
+                <p>
+                    The results also showed that red-zone $\text{EPA}/\text{play}$, quarterback $\text{EPA}/\text{play}$, and third-down
+                    conversion rate were each substantially
+                    associated with team success. These relationships
+                    remained visible across both correlation and
+                    regression-based analyses.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== ANALYTICAL FINDINGS ==================== -->
+
+        <section class="project-section">
+
+            <div class="project-section-header">
+
+                <p class="eyebrow">
+                    05 / KEY FINDINGS
+                </p>
+
+                <h2>
+                    Eight Analytical Questions
+                </h2>
+
+            </div>
+
+
+            <div class="project-section-content">
+
+                <ul class="contribution-list">
+
+                    <li>
+                        <strong>Red-zone efficiency:</strong>
+                        Red-zone $\text{EPA}/\text{play}$ had the strongest
+                        pairwise association with team win percentage
+                        among the red-zone measures examined
+                        ($r = 0.512$, $p < 0.001$).
+                    </li>
+
+                    <li>
+                        <strong>$\text{EPA}$ versus traditional statistics:</strong>
+                        $\text{EPA}/\text{play}$ had a stronger individual
+                        correlation with win percentage than yards
+                        per play and success rate, with $r = 0.734$.
+                    </li>
+
+                    <li>
+                        <strong>Explosive plays:</strong>
+                        Explosive-play rate was associated with
+                        winning independently, but was not
+                        statistically significant ($p > 0.05$) after overall
+                        $\text{EPA}$ efficiency was included in the model.
+                    </li>
+
+                    <li>
+                        <strong>Player efficiency:</strong>
+                        Workload thresholds were used to identify
+                        high-efficiency quarterback, running back,
+                        and receiver seasons while reducing
+                        small-sample instability.
+                    </li>
+
+                    <li>
+                        <strong>Quarterback performance:</strong>
+                        $\text{QB EPA}/\text{play}$ had the strongest pairwise
+                        association with team win percentage among
+                        $\text{QB EPA}/\text{play}$, $\text{CPOE}$ (Completion Percentage Above Expectation), and $\text{QB}$ success rate.
+                    </li>
+
+                    <li>
+                        <strong>Third down:</strong>
+                        Third-down conversion rate had a Pearson
+                        correlation of $r = 0.640$ with team
+                        win percentage.
+                    </li>
+
+                    <li>
+                        <strong>Early-game performance:</strong>
+                        Teams in the highest first-half $\text{EPA}$ quartile
+                        won $74.3\%$ of games, compared with $24.1\%$ for
+                        teams in the lowest quartile.
+                    </li>
+
+                    <li>
+                        <strong>Underlying efficiency:</strong>
+                        A multivariate efficiency model explained
+                        $77.8\%$ of observed variation ($R^2 = 0.778$) in team
+                        win percentage within the sample.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== VISUALIZATIONS ==================== -->
+
+        <section class="project-section">
+
+            <div class="project-section-header">
+                <p class="eyebrow">
+                    06 / VISUALIZATIONS
+                </p>
+
+                <h2>
+                    Visualizing Relationships
+                </h2>
+            </div>
+
+            <!-- Placed outside project-section-content so grid-column: 1 / -1 can span full width -->
+            <div class="visualization-grid">
+
+                <div class="visualization">
+                    <img
+                        src="../images/nfl_red_zone_epa.png"
+                        alt="Red-zone EPA per play versus team win percentage"
+                    >
+                    <p class="figure-caption">
+                        Red-zone $\text{EPA}/\text{play}$ versus team win
+                        percentage across $n = 192$ team-seasons.
+                    </p>
+                </div>
+
+                <div class="visualization">
+                    <img
+                        src="../images/nfl_model_comparison.png"
+                        alt="Comparison of traditional and EPA-based regression models"
+                    >
+                    <p class="figure-caption">
+                        Comparison of in-sample explanatory power ($R^2$)
+                        between traditional-statistics and
+                        $\text{EPA}$-based regression models.
+                    </p>
+                </div>
+
+                <div class="visualization">
+                    <img
+                        src="../images/nfl_first_half_epa.png"
+                        alt="Winning rate by first-half EPA quartile"
+                    >
+                    <p class="figure-caption">
+                        Eventual win rate by quartile of first-half
+                        $\text{EPA}/\text{play}$ across $N = 3{,}230$ team-game
+                        observations.
+                    </p>
+                </div>
+
+                <div class="visualization">
+                    <img
+                        src="../images/nfl_efficiency_model.png"
+                        alt="Actual versus efficiency-expected win percentage"
+                    >
+                    <p class="figure-caption">
+                        Actual versus fitted team win percentage ($\hat{y}$)
+                        from the multivariate efficiency model.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== LIMITATIONS ==================== -->
+
+        <section class="project-section">
+
+            <div class="project-section-header">
+
+                <p class="eyebrow">
+                    07 / LIMITATIONS
+                </p>
+
+                <h2>
+                    Interpreting the results
+                </h2>
+
+            </div>
+
+
+            <div class="project-section-content">
+
+                <p>
+                    The analysis is observational and measures
+                    associations within the 2020–2025 sample.
+                    Statistical significance ($p < 0.05$) does not establish
+                    that changing a performance statistic would
+                    cause a corresponding change in win percentage.
+                </p>
+
+                <p>
+                    The reported $R^2$ values also describe
+                    <strong>in-sample explanatory power</strong>,
+                    rather than validated future-season prediction.
+                    The fitted values ($\hat{y}$) from the final efficiency model
+                    therefore identify in-sample deviations from the
+                    modeled relationship rather than independently
+                    validated forecasts.
+                </p>
+
+                <p>
+                    Other factors—including opponent quality,
+                    injuries, coaching, schedule strength,
+                    home-field advantage, special teams, and game
+                    state—are not fully represented in the current
+                    models.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== FUTURE WORK ==================== -->
+
+        <section class="project-section">
+
+            <div class="project-section-header">
+
+                <p class="eyebrow">
+                    08 / FUTURE WORK
+                </p>
+
+                <h2>
+                    From explanation to forecasting
+                </h2>
+
+            </div>
+
+
+            <div class="project-section-content">
+
+                <p>
+                    The next stage of the project is to evaluate
+                    whether the observed relationships generalize
+                    to future seasons through chronological
+                    out-of-sample validation. One proposed approach
+                    is to train on 2020–2024 and evaluate on 2025,
+                    followed by rolling-origin validation across
+                    multiple season boundaries.
+                </p>
+
+                <p>
+                    Future models could incorporate opponent-adjusted
+                    efficiency, recent performance, home-field
+                    advantage, injuries, and other contextual
+                    variables. Logistic regression could provide an
+                    interpretable baseline before comparing more
+                    flexible machine-learning and ensemble methods.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== CONCLUSION ==================== -->
+
+        <section class="project-section">
+
+            <div class="project-section-header">
+
+                <p class="eyebrow">
+                    09 / CONCLUSION
+                </p>
+
+                <h2>
+                    A foundation for predictive modeling
+                </h2>
+
+            </div>
+
+
+            <div class="project-section-content">
+
+                <p>
+                    Across the eight analyses, efficiency-based
+                    statistics—particularly $\text{EPA}/\text{play}$—contained
+                    substantial information about NFL team success.
+                    The consistency of the relationship across
+                    red-zone, offensive, quarterback, and full-team
+                    analyses supports the use of expected-points
+                    measures as a framework for summarizing
+                    performance.
+                </p>
+
+                <p>
+                    At the same time, the analysis demonstrates why
+                    statistical modeling requires more than a single
+                    correlation ($r$) or high $R^2$. Predictor overlap,
+                    observational confounding, sample structure,
+                    and the distinction between in-sample explanation
+                    and out-of-sample prediction all affect how the
+                    results should be interpreted.
+                </p>
+
+                <p>
+                    The project therefore provides a foundation for
+                    extending the analysis toward a temporally
+                    validated NFL game-outcome forecasting framework.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== LINKS ==================== -->
+
+        <section class="project-links">
+
+            <a href="https://github.com/mig-11-11/nfl_report"
+               class="button primary">
+                View Code
+            </a>
+
+            <a href="../pdfs/nfl_report.pdf"
+            class="button secondary" target="_blank" rel="noopener">
+                PDF Report
+            </a>
+
+            <a href="../index.html#projects"
+               class="button primary">
+                Back to Projects
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Matteo Gomez
+        </p>
+
+    </footer>
+
+
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
